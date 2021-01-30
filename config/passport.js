@@ -1,8 +1,8 @@
-var passport = require("passport");
+const passport = require("passport");
 
-var LocalStrategy = require("passport-local").Strategy;
+const LocalStrategy = require("passport-local").Strategy;
 
-var db = require("models");
+const db = require("models");
 
 // Login will using a username/email and password
 passport.use(
