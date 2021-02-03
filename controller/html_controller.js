@@ -10,5 +10,3 @@ router.get("/", function (req, res) {
     res.redirect("/clients");
   }
 });
-
-router.get("/");
