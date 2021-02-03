@@ -2,7 +2,7 @@ const passport = require("passport");
 
 const LocalStrategy = require("passport-local").Strategy;
 
-const db = require("models");
+const db = require("../models");
 
 // Login will using a username/email and password
 passport.use(
@@ -12,32 +12,32 @@ passport.use(
       usernameField: "email",
     },
     function (email, password, done) {
-      db.User.findOne({
+      db.Client.findOne({
         where: {
           email: email,
         },
-      }).then(function (dbUser) {
+      }).then(function (dbClient) {
         // If no user with given email
-        if (!dbUser) {
+        if (!dbClient) {
           return done(null, false, {
             message: "Incorrect Email!",
           });
         }
         // If user has email but incorrect password
-        else if (!dbUser.validPassword(password)) {
+        else if (!dbClient.validPassword(password)) {
           return done(null, false, {
             message: "Incorrect Password!",
           });
         }
-        return done(null, dbUser);
+        return done(null, dbClient);
       });
     }
   )
 );
 
 // Sequelize needs to serialize and deserialize the user
-passport.serializeUser(function (user, cb) {
-  cb(null, user);
+passport.serializeUser(function (Client, cb) {
+  cb(null, Client);
 });
 
 passport.deserializeUser(function (obj, cb) {
