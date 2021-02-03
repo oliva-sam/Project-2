@@ -18,14 +18,14 @@ module.exports = function (sequelize, DataTypes) {
       },
     },
   });
-  // Will compare if unhashed password created by user can be compared to hashed password stored in database
+  // Will compare if unhashed password created by User can be compared to hashed password stored in database
   User.prototype.validPassword = function (password) {
     return bcrypt.compareSync(password, this.password);
   };
   // Before a User is created, we will automatically hash their password
-  User.addHook("beforeCreate", function (user) {
-    user.password = bcrypt.hashSync(
-      user.password,
+  User.addHook("beforeCreate", function (User) {
+    User.password = bcrypt.hashSync(
+      User.password,
       bcrypt.genSaltSync(10),
       null
     );
