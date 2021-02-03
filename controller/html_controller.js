@@ -1,10 +1,10 @@
 const express = require("express");
 const router = express.Router();
 
-const trainer = require("../models/trainer.js");
+const user = require("../models/user.js");
 
 router.get("/", function (req, res) {
-  if (req.trainer) {
-    res.redirect("/trainers");
+  if (req.user) {
+    res.redirect("/Users");
   }
 });

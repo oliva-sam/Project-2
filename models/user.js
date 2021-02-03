@@ -1,8 +1,8 @@
 const bcrypt = require("bcryptjs");
 
-// Creates Client model
+// Creates User model
 module.exports = function (sequelize, DataTypes) {
-  let Client = sequelize.define("Client", {
+  let User = sequelize.define("User", {
     // Email cannot be null and must be a proper email creation
     email: {
       type: DataTypes.STRING,
@@ -18,17 +18,17 @@ module.exports = function (sequelize, DataTypes) {
       },
     },
   });
-  // Will compare if unhashed password created by Client can be compared to hashed password stored in database
-  Client.prototype.validPassword = function (password) {
+  // Will compare if unhashed password created by User can be compared to hashed password stored in database
+  User.prototype.validPassword = function (password) {
     return bcrypt.compareSync(password, this.password);
   };
-  // Before a Client is created, we will automatically hash their password
-  Client.addHook("beforeCreate", function (Client) {
-    Client.password = bcrypt.hashSync(
-      Client.password,
+  // Before a User is created, we will automatically hash their password
+  User.addHook("beforeCreate", function (User) {
+    User.password = bcrypt.hashSync(
+      User.password,
       bcrypt.genSaltSync(10),
       null
     );
   });
-  return Client;
+  return User;
 };

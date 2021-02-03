@@ -12,32 +12,32 @@ passport.use(
       usernameField: "email",
     },
     function (email, password, done) {
-      db.Client.findOne({
+      db.User.findOne({
         where: {
           email: email,
         },
-      }).then(function (dbClient) {
+      }).then(function (dbUser) {
         // If no user with given email
-        if (!dbClient) {
+        if (!dbUser) {
           return done(null, false, {
             message: "Incorrect Email!",
           });
         }
         // If user has email but incorrect password
-        else if (!dbClient.validPassword(password)) {
+        else if (!dbUser.validPassword(password)) {
           return done(null, false, {
             message: "Incorrect Password!",
           });
         }
-        return done(null, dbClient);
+        return done(null, dbUser);
       });
     }
   )
 );
 
 // Sequelize needs to serialize and deserialize the user
-passport.serializeUser(function (Client, cb) {
-  cb(null, Client);
+passport.serializeUser(function (user, cb) {
+  cb(null, user);
 });
 
 passport.deserializeUser(function (obj, cb) {
