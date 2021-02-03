@@ -14,6 +14,7 @@ var message = {
   subject: '',
   text: ''
 };
+
 transport.sendMail(message, function(error, info){
   if (error) {
     console.log(error);
@@ -21,3 +22,5 @@ transport.sendMail(message, function(error, info){
     console.log('Email sent: ' + info.response);
   }
 });
+
+// module.exports = transport;
