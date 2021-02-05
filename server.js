@@ -1,6 +1,4 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 ///// DEPENDENTS /////
 
 const express = require("express");
@@ -23,11 +21,7 @@ const passport = require("./config/passport");
 //// MIDDLEWARE////
 
 // parse posts requests & passport authentication
-=======
-=======
->>>>>>> main
-=======
->>>>>>> main
+
 // Requiring necessary npm packages
 var express = require("express");
 var session = require("express-session");
@@ -40,13 +34,6 @@ var db = require("./models");
 
 // Creating express app and configuring middleware needed for authentication
 var app = express();
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> main
-=======
->>>>>>> main
-=======
->>>>>>> main
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
@@ -57,20 +44,10 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 //// Require Routes section IN PROGRESS ////
 require("./routes/html-routes.js")(app);
 require("./routes/api-routes.js")(app);
 
-
-=======
->>>>>>> main
-=======
->>>>>>> main
-=======
->>>>>>> main
 //// SYNC THE DATABASE THEN LISTEN TO PORT ////
 db.sequelize.sync().then(function () {
   app.listen(PORT, function () {

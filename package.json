@@ -4,9 +4,12 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   "description": "",
   "main": "server.js",
 =======
+=======
+>>>>>>> main
 =======
 >>>>>>> main
 =======
@@ -26,6 +29,9 @@
   "devDependencies": {},
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> main
+=======
 >>>>>>> main
 =======
 >>>>>>> main
@@ -42,7 +48,11 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   "author": "nos",
+=======
+  "author": "",
+>>>>>>> main
 =======
   "author": "",
 >>>>>>> main
@@ -59,6 +69,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   "homepage": "https://github.com/HarrisonNoblett/Project-2#readme",
   "dependencies": {
     "express": "^4.17.1",
@@ -70,6 +81,9 @@
     "sequelize": "^6.5.0",
     "sequelize-cli": "^6.2.0"
   }
+=======
+  "homepage": "https://github.com/HarrisonNoblett/Project-2#readme"
+>>>>>>> main
 =======
   "homepage": "https://github.com/HarrisonNoblett/Project-2#readme"
 >>>>>>> main
