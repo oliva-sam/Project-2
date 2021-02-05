@@ -1,19 +1,7 @@
+  
 {
   "name": "project-2",
   "version": "1.0.0",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-  "description": "",
-  "main": "server.js",
-=======
-=======
->>>>>>> main
-=======
->>>>>>> main
-=======
->>>>>>> main
   "description": "## Description Trainers and clients are able to login to their profile and look at their schedule. Trainers can edit clients workout goals, and clients can request trainers when available.",
   "main": "server.js",
   "dependencies": {
@@ -27,16 +15,6 @@
     "sequelize": "^6.5.0"
   },
   "devDependencies": {},
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> main
-=======
->>>>>>> main
-=======
->>>>>>> main
-=======
->>>>>>> main
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
@@ -45,52 +23,10 @@
     "type": "git",
     "url": "git+https://github.com/HarrisonNoblett/Project-2.git"
   },
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-  "author": "nos",
-=======
   "author": "",
->>>>>>> main
-=======
-  "author": "",
->>>>>>> main
-=======
-  "author": "",
->>>>>>> main
-=======
-  "author": "",
->>>>>>> main
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/HarrisonNoblett/Project-2/issues"
   },
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-  "homepage": "https://github.com/HarrisonNoblett/Project-2#readme",
-  "dependencies": {
-    "express": "^4.17.1",
-    "express-handlebars": "^5.2.0",
-    "heroku": "^7.47.11",
-    "mysql": "^2.18.1",
-    "nodemailer": "^6.4.17",
-    "nodemon": "^2.0.7",
-    "sequelize": "^6.5.0",
-    "sequelize-cli": "^6.2.0"
-  }
-=======
   "homepage": "https://github.com/HarrisonNoblett/Project-2#readme"
->>>>>>> main
-=======
-  "homepage": "https://github.com/HarrisonNoblett/Project-2#readme"
->>>>>>> main
-=======
-  "homepage": "https://github.com/HarrisonNoblett/Project-2#readme"
->>>>>>> main
-=======
-  "homepage": "https://github.com/HarrisonNoblett/Project-2#readme"
->>>>>>> main
 }
