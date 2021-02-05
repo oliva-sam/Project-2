@@ -3,9 +3,12 @@
   "version": "1.0.0",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   "description": "",
   "main": "server.js",
 =======
+=======
+>>>>>>> main
 =======
 >>>>>>> main
   "description": "## Description Trainers and clients are able to login to their profile and look at their schedule. Trainers can edit clients workout goals, and clients can request trainers when available.",
@@ -22,6 +25,9 @@
   },
   "devDependencies": {},
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> main
+=======
 >>>>>>> main
 =======
 >>>>>>> main
@@ -35,7 +41,11 @@
   },
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   "author": "nos",
+=======
+  "author": "",
+>>>>>>> main
 =======
   "author": "",
 >>>>>>> main
@@ -46,6 +56,7 @@
   "bugs": {
     "url": "https://github.com/HarrisonNoblett/Project-2/issues"
   },
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
   "homepage": "https://github.com/HarrisonNoblett/Project-2#readme",
@@ -59,6 +70,9 @@
     "sequelize": "^6.5.0",
     "sequelize-cli": "^6.2.0"
   }
+=======
+  "homepage": "https://github.com/HarrisonNoblett/Project-2#readme"
+>>>>>>> main
 =======
   "homepage": "https://github.com/HarrisonNoblett/Project-2#readme"
 >>>>>>> main

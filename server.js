@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ///// DEPENDENTS /////
 
 const express = require("express");
@@ -25,6 +26,8 @@ const passport = require("./config/passport");
 =======
 =======
 >>>>>>> main
+=======
+>>>>>>> main
 // Requiring necessary npm packages
 var express = require("express");
 var session = require("express-session");
@@ -38,6 +41,9 @@ var db = require("./models");
 // Creating express app and configuring middleware needed for authentication
 var app = express();
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> main
+=======
 >>>>>>> main
 =======
 >>>>>>> main
@@ -53,11 +59,14 @@ app.use(passport.session());
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 //// Require Routes section IN PROGRESS ////
 require("./routes/html-routes.js")(app);
 require("./routes/api-routes.js")(app);
 
 
+=======
+>>>>>>> main
 =======
 >>>>>>> main
 =======
