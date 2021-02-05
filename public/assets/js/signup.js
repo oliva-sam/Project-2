@@ -6,7 +6,7 @@ $(document).ready(function () {
     signUpBtn.on("submit", function (event) {
         const userEmail = $("input#email-input");
         const userPassword = $("input#password-input");
-        var isTrainer = $("input#checkbox-input")[0].checked;
+        let isTrainer = $("input#checkbox-input")[0].checked;
 
         event.preventDefault();
         let newUser = {
