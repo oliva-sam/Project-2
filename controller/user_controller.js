@@ -11,10 +11,10 @@ router.get("/", function (req, res) {
 
 router.get("/login", function (req, res) {
   if (req.user.is_trainer) {
-    res.send("trainer");
+    res.send("is trainer");
     // res.redirect("/trainerHome");
   } else {
-    res.send("client");
+    res.send("is client");
     // res.redirect("/clientHome");
   }
 });
