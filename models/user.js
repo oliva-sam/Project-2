@@ -11,14 +11,14 @@ module.exports = function (sequelize, DataTypes) {
       validate: {
         isEmail: true,
       },
-      // Password cannot be null
-      password: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      is_trainer: {
-        type: DataTypes.BOOLEAN,
-      },
+    },
+    // Password cannot be null
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    is_trainer: {
+      type: DataTypes.BOOLEAN,
     },
   });
   // Will compare if unhashed password created by User can be compared to hashed password stored in database
