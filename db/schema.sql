@@ -1,6 +1,6 @@
-DROP DATABASE IF EXISTS trainer_db;
-CREATE DATABASE trainer_db;
-USE trainer_db;
+DROP DATABASE IF EXISTS user_db;
+CREATE DATABASE user_db;
+USE user_db;
 CREATE TABLE user (
     id INT NOT NULL AUTO_INCREMENT,
     name VARCHAR(50) NOT NULL,

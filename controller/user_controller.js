@@ -1,42 +1,42 @@
 const express = require("express");
 const router = express.Router();
 
-let user = require("../models/user.js");
+const isAuthenticated = require("../config/middleware/isAuthenticated.js");
+
+let db = require("../models");
 
 router.get("/", function (req, res) {
-  res.send("hi");
+  res.redirect("/signup");
 });
 
-// router.get("/user", function (req, res) {
-//   user.all(function (data) {
-//     var userObject = {
-//       users: data,
-//     };
-//     console.log(userObject);
-//     res.render("user", userObject);
-//   });
-// });
 router.get("/login", function (req, res) {
   if (req.user.is_trainer) {
-    res.redirect("/trainer");
+    res.send("trainer");
+    // res.redirect("/trainerHome");
+  } else {
+    res.send("client");
+    // res.redirect("/clientHome");
   }
 });
 
 router.get("/signup", function (req, res) {
-  user
-    .create(
-      ["name", "email"],
-      [req.body.name, req.body.email],
-      function (result) {
-        res.json({ id: result.insertId });
+  db.User.create({
+    email: req.body.email,
+    password: req.body.password,
+  })
+    .then(function (result) {
+      if (req.user.is_trainer) {
+        res.send("is trainer");
+      } else {
+        res.send("is client");
       }
-    )
-    .then(function () {
-      res.redirect(307, "/login");
     })
     .catch(function (err) {
       res.status(401).json(err);
     });
 });
+
+// router.get("/trainerHome", isAuthenticated, function (req, res) {});
+// router.get("/clientHome", isAuthenticated, function (req, res) {});
 
 module.exports = router;
