@@ -1,45 +1,33 @@
-///// DEPENDENTS /////
+// Requiring necessary npm packages
+var express = require("express");
+var session = require("express-session");
+// Requiring passport as we've configured it
+var passport = require("./config/passport");
+//
+var apiRoutes = require("./controller/api_controller.js");
+var userRoutes = require("./controller/user_controller.js");
+// Setting up port and requiring models for syncing
+var PORT = process.env.PORT || 8080;
+var db = require("./models");
 
-const express = require("express");
-
-// instance of express
-const app = express();
-
-// package to store user data
-const session = require("express-session");
-
-// package to authenticate requests
-const passport = require("./config/passport");
-
-// port for heroku or local 8080
-const PORT = process.env.PORT || 8080;
-
-// requiring database model of trainer.js & client.js
-const db = require("./models");
-
-//// MIDDLEWARE////
-
-// parse posts requests & passport authentication
+// Creating express app and configuring middleware needed for authentication
+var app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
-// access to all files in public folder
 app.use(express.static("public"));
-
-//express-session middleware
-app(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
-
-// passport middleware
+// We need to use sessions to keep track of our user's login status
+app.use(
+  session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
+);
 app.use(passport.initialize());
 app.use(passport.session());
 
-//// Require Routes section IN PROGRESS ////
-//require("./routes")(app);
-
+apiRoutes(app);
+app.use(userRoutes);
 
 //// SYNC THE DATABASE THEN LISTEN TO PORT ////
 db.sequelize.sync().then(function () {
-    app.listen(PORT, function () {
-        return console.log(`Listening on http://localhost:${PORT}`)
-    })
+  app.listen(PORT, function () {
+    return console.log(`Listening on http://localhost:${PORT}`);
+  });
 });

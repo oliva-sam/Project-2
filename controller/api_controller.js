@@ -1,10 +1,9 @@
 const db = require("../models");
 const passport = require("../config/passport");
-
+var path = require("path");
 module.exports = function (app) {
   // If the user has valid credentials send them to the members page.
   app.post("/api/login", passport.authenticate("local"), function (req, res) {
-    console.log(req.user);
     res.json(req.user);
   });
 
