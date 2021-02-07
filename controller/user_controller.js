@@ -14,12 +14,15 @@ router.get("/login", function (req, res) {});
 
 router.post("/signup", function (req, res) {
   console.log("heres the body", req.body);
-  db.User.create(
-    ["email-input", "password-input"],
-    [req.body.email, req.body.password]
+  db.User.create({
+    email: req.body.email,
+    password: req.body.password
+  }
+    // ["email-input", "password-input"],
+    // [req.body.email, req.body.password]
   ).then(function (result) {
     if (req.user) {
-      res.redirect("/trainerHome");
+      res.redirect(307, "/trainerHome");
     }
   });
   // .then(function (result) {
