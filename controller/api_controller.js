@@ -11,7 +11,7 @@ module.exports = function (app) {
     db.User.create({
       email: req.body.email,
       password: req.body.password,
-      is_trainer: req.body.is_trainer,
+      // is_trainer: req.body.is_trainer,
     })
       .then(function () {
         res.redirect(307, "/api/login");
