@@ -18,6 +18,9 @@ module.exports = function (app) {
       })
       .catch(function (err) {
         res.status(401).json(err);
+        if(err) {
+          res.send({message: "you already have an account with us"});
+        }
       });
   });
 
