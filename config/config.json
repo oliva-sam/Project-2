@@ -1,9 +1,9 @@
 {
   "development": {
     "username": "root",
-    "password": "Panda736!",
-    "database": "trainer_db",
-    "host": "127.0.0.1",
+    "password": "Creature13X!",
+    "database": "user_db",
+    "host": "localhost",
     "dialect": "mysql"
   },
   "test": {

@@ -10,7 +10,9 @@
 </div>
 <nav class="navbar navbar-dark bg-danger">
     <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
+            aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
     </div>
@@ -20,16 +22,18 @@
         <h3>Welcome To Go Fit!</h3>
     </div>
     <hr>
-    <form action="/signup">
+    <form class="signup">
         <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Email" aria-label="Email" name="signup-email" aria-describedby="basic-addon2">
-            <span class="input-group-text" id="basic-addon2">@example.com</span>
+            <input id="email-input" type="text" class="form-control" placeholder="Email" aria-label="Email"
+                name="signup-email" aria-describedby="basic-addon2">
+            {{!-- <span class="input-group-text" id="basic-addon2">@example.com</span> --}}
         </div>
         <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Password" aria-label="Password" name="signup-password" aria-describedby="basic-addon2">
+            <input id="password-input" type="text" class="form-control" placeholder="Password" aria-label="Password"
+                name="signup-password" aria-describedby="basic-addon2">
         </div>
-        <div class="float-end"> 
-            <button>Sign Up!</button>
+        <div class="float-end">
+            <button type="submit">Sign Up!</button>
         </div>
     </form>
 </div>
