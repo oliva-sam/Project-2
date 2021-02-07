@@ -18,23 +18,24 @@ $(document).ready(function () {
       return alert("email and password fields are both required");
     }
 
-    console.log(newUser);
+    console.log(newUser.email);
+    console.log(newUser.password);
 
     newUserSignUp(newUser.email, newUser.password);
     userEmail.val("");
     userPassword.val("");
+    // code to reset checkbox TBD
   });
 
-  // code to reset checkbox TBD
   function newUserSignUp(email, password) {
-    $.post("/signup", {
+    $.post("/api/signup", {
       email: email,
-      password: password,
+      password: password
       //   is_Trainer: trainerBoo,
     })
       .then(function (data) {
-        // console.log("redirect to trainer or client page now");
-        window.location.replace("/");
+        console.log("redirect to trainer or client page now");
+        //window.location.replace("/");
       })
       .catch(handleErr);
   }
