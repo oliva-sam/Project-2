@@ -12,9 +12,10 @@ router.get("/", function (req, res) {
 
 router.get("/login", function (req, res) {});
 
-router.get("/signup", function (req, res) {
+router.post("/signup", function (req, res) {
+  console.log("heres the body", req.body);
   db.User.create(
-    ["signup-email", "signup-password"],
+    ["email-input", "password-input"],
     [req.body.email, req.body.password]
   ).then(function (result) {
     if (req.user) {

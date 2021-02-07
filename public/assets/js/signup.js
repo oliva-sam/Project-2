@@ -28,14 +28,14 @@ $(document).ready(function () {
   });
 
   function newUserSignUp(email, password) {
-    $.post("/api/signup", {
+    $.post("/signup", {
       email: email,
       password: password
       //   is_Trainer: trainerBoo,
     })
       .then(function (data) {
         console.log("redirect to trainer or client page now");
-        //window.location.replace("/");
+        window.location.replace("/trainerHome");
       })
       .catch(handleErr);
   }

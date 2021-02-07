@@ -17,9 +17,9 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    is_trainer: {
-      type: DataTypes.BOOLEAN,
-    },
+    // is_trainer: {
+    //   type: DataTypes.BOOLEAN,
+    // },
   });
   // Will compare if unhashed password created by User can be compared to hashed password stored in database
   User.prototype.validPassword = function (password) {
