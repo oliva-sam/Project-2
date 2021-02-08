@@ -1,6 +1,7 @@
 console.log("hi");
 
 $(document).ready(function () {
+//////////// SIGN UP  ////////////
   const signUpBtn = $("form.signup");
   const userEmail = $("input#email-input");
   const userPassword = $("input#password-input");
@@ -18,8 +19,8 @@ $(document).ready(function () {
       return alert("email and password fields are both required");
     }
 
-    console.log(newUser.email);
-    console.log(newUser.password);
+   // console.log(newUser.email);
+    // console.log(newUser.password);
 
     newUserSignUp(newUser.email, newUser.password);
     userEmail.val("");
@@ -35,13 +36,51 @@ $(document).ready(function () {
     })
       .then(function (data) {
         console.log("redirect to trainer or client page now");
-        window.location.replace("/trainerHome");
+       // window.location.replace("/members");
       })
-      .catch(handleErr);
+      .catch(function () {
+        console.log(err);
+        alert("You already have an account");
+    
+      });
   }
 
-  function handleErr(err) {
-    console.log(err.message);
+  //////////// LOG IN ////////////
+  const tloginBtn = $("form.login");
     
+  tloginBtn.on("submit", function(event) {
+      event.preventDefault();
+      const emailLog = $("input#emailLog-input");
+      const passwordLog = $("input#passwordLog-input");
+
+      let clientData = {
+          email: emailLog.val().trim(),
+          password: passwordLog.val().trim()
+      };
+
+      console.log(clientData);
+
+      if(!clientData.email || !clientData.password) {
+          return alert("email and password fields are both required");
+      }
+
+      loginClient(clientData.email, clientData.password);
+      emailLog.val("");
+      passwordLog.val("");
+  });
+
+  function loginClient (email, password) {
+      $.post("/api/login", {
+          email: email,
+          password: password
+      }).then(function(data) {
+          console.log("redirect to the client's page")
+          //window.location.replace("/trainerpage")
+      }).catch(handleLogInErr);
+  };
+
+  function handleLogInErr(err) {
+    console.log(err);
+    alert("Incorrect password or email");
   }
 });
