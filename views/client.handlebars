@@ -1,23 +1,34 @@
 <div class="bigimg text-center">
     <div class="caption"><h3>Get Fit!</h3></div> 
 </div>
+<div class="container mt-4">
+    <div class="row text-center">
+        <div class="col-md-6 card-body">
+            <h3 class="card-title text-center underline" id="email"></h3>
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div>
+            <h3 class="text-center">Share your goals!</h3>
+            <div class="input-group">
+                <textarea class="form-control" aria-label="With textarea" placeholder="Goals"></textarea>
+            </div>
+            <div class="float-end">
+                <form action="submit"><button>Submit!</button></form>
+            </div>
+        </div>
+    </div>
+</div>
 <ul>
     {{#each client}}
-            <li>
-            <div class="container mt-4">
-            <div class="row text-center">
-                <h1>Get Fit!</h1>
-                <hr>
+        <li>
+            <div class="text-center" id="goals">
+                
             </div>
-            <div class="row">
-                <div class="col-md-6 card-body">
-                    <h3 class="card-title text-center" id="eamil"></h3>
-                    <hr>
-                    <h4><p class="card-text strong text-center" id="goals"></p></h4>
-                    <hr>
-                </div>
-            </div>
-            </div>
-            </li>
+        </li>
     {{/each}}
 </ul>
+<div class="text-center">
+    <a href="/logout">Log Out</a>
+</div>
