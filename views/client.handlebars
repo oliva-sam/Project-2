@@ -19,9 +19,9 @@
         <div class="col-md-6">
             <h2>Goals</h2>
             <ol>
-                {{#each goal}}
+                {{#each goals}}
                 {{#unless this.complete}}
-                <li> {{this.goal}}
+                <li> {{this.goals}}
                     <button class="completeBtn" data-id="{{id}}">Complete</button>
                 </li>
                 {{/unless}}
@@ -32,9 +32,9 @@
         <div class="col-md-6">
             <h2>Completed Goals</h2>
             <ol>
-                {{#each goal}}
+                {{#each goals}}
                 {{#if this.complete}}
-                <li>{{this.goal}}
+                <li>{{this.goals}}
                     <button class="deleteBtn" data-id="{{this.id}}">delete</button>
                 </li>
                 {{/if}}
