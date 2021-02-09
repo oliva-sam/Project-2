@@ -1,19 +1,10 @@
+  
 {
   "development": {
     "username": "root",
-<<<<<<< HEAD
-    "password": "B055p0w3r!",
-    "database": "database_development",
-    "password": "Creature13X!",
-    "database": "trainer_db",
-    "password": "Creature13X!",
-    "database": "trainer_db",
-    "host": "127.0.0.1",
-=======
     "password": "Panda736!",
     "database": "user_db",
     "host": "localhost",
->>>>>>> main
     "dialect": "mysql"
   },
   "test": {
