@@ -1,6 +1,10 @@
 node_modules/
 <<<<<<< HEAD
+<<<<<<< HEAD
 package-lock.json/
 =======
 package-lock.json/
 >>>>>>> 26f1fa113d2c654c44d25c10da85779f5b51e092
+=======
+package-lock.json/
+>>>>>>> main
