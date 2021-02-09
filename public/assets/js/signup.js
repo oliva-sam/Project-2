@@ -29,7 +29,7 @@ $(document).ready(function () {
   });
 
   function newUserSignUp(email, password) {
-    $.post("/api/signup", {
+    $.post("/signup", {
       email: email,
       password: password,
     })
