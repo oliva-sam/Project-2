@@ -13,6 +13,17 @@ module.exports = function (app) {
     res.redirect("/");
   });
 
+  app.post("/api/goals", function (req, res) {
+    db.Goals.create({
+      goals: req.body.goals,
+      complete: req.body.complete,
+      UserId: req.body.UserId,
+    }).then(function (dbGoals) {
+      // console.log(dbGoals);
+      res.json(dbGoals);
+    });
+  });
+
   app.get("/api/user_data", function (req, res) {
     if (!req.user) {
       res.json({});

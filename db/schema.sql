@@ -17,6 +17,3 @@ USE user_db;
 -- VALUES ('Jon', 'jon@fakemail.com');
 -- INSERT INTO user (name, email)
 -- VALUES ('Jane', 'jane@fakemail.com');
-DROP DATABASE IF EXISTS goal_db;
-CREATE DATABASE goal_db;
-USE goal_db;
