@@ -35,7 +35,7 @@ router.post("/signup", function (req, res) {
 });
 
 router.get("/client", isAuthenticated, function (req, res) {
-  console.log(res);
+  // console.log(res);
   res.render("client");
 });
 
