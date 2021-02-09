@@ -1,7 +1,7 @@
 console.log("hi");
 
 $(document).ready(function () {
-//////////// SIGN UP  ////////////
+  //////////// SIGN UP  ////////////
   const signUpBtn = $("form.signup");
   const userEmail = $("input#email-input");
   const userPassword = $("input#password-input");
@@ -19,7 +19,7 @@ $(document).ready(function () {
       return alert("email and password fields are both required");
     }
 
-   // console.log(newUser.email);
+    // console.log(newUser.email);
     // console.log(newUser.password);
 
     newUserSignUp(newUser.email, newUser.password);
@@ -31,53 +31,53 @@ $(document).ready(function () {
   function newUserSignUp(email, password) {
     $.post("/signup", {
       email: email,
-      password: password
-      //   is_Trainer: trainerBoo,
+      password: password,
     })
       .then(function (data) {
-        console.log("redirect to trainer or client page now");
-       // window.location.replace("/members");
+        console.log("redirect to client page now");
+        window.location.replace("/client");
       })
-      .catch(function () {
+      .catch(function (err) {
         console.log(err);
         alert("You already have an account");
-    
       });
   }
 
   //////////// LOG IN ////////////
   const tloginBtn = $("form.login");
-    
-  tloginBtn.on("submit", function(event) {
-      event.preventDefault();
-      const emailLog = $("input#emailLog-input");
-      const passwordLog = $("input#passwordLog-input");
 
-      let clientData = {
-          email: emailLog.val().trim(),
-          password: passwordLog.val().trim()
-      };
+  tloginBtn.on("submit", function (event) {
+    event.preventDefault();
+    const emailLog = $("input#emailLog-input");
+    const passwordLog = $("input#passwordLog-input");
 
-      console.log(clientData);
+    let clientData = {
+      email: emailLog.val().trim(),
+      password: passwordLog.val().trim(),
+    };
 
-      if(!clientData.email || !clientData.password) {
-          return alert("email and password fields are both required");
-      }
+    console.log(clientData);
 
-      loginClient(clientData.email, clientData.password);
-      emailLog.val("");
-      passwordLog.val("");
+    if (!clientData.email || !clientData.password) {
+      return alert("email and password fields are both required");
+    }
+
+    loginClient(clientData.email, clientData.password);
+    emailLog.val("");
+    passwordLog.val("");
   });
 
-  function loginClient (email, password) {
-      $.post("/api/login", {
-          email: email,
-          password: password
-      }).then(function(data) {
-          console.log("redirect to the client's page")
-          //window.location.replace("/trainerpage")
-      }).catch(handleLogInErr);
-  };
+  function loginClient(email, password) {
+    $.post("/api/login", {
+      email: email,
+      password: password,
+    })
+      .then(function (data) {
+        console.log("redirect to the client's page");
+        window.location.replace("/client");
+      })
+      .catch(handleLogInErr);
+  }
 
   function handleLogInErr(err) {
     console.log(err);

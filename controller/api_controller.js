@@ -7,23 +7,6 @@ module.exports = function (app) {
     res.json(req.user);
   });
 
-  // app.post("/api/signup", function (req, res) {
-  //   db.User.create({
-  //     email: req.body.email,
-  //     password: req.body.password,
-  //     // is_trainer: req.body.is_trainer,
-  //   })
-  //     .then(function () {
-  //       res.redirect(307, "/api/login");
-  //     })
-  //     .catch(function (err) {
-  //       res.status(401).json(err);
-  //       if(err) {
-  //         res.send({message: "you already have an account with us"});
-  //       }
-  //     });
-  // });
-
   // Route for logging user out
   app.get("/logout", function (req, res) {
     req.logout();
@@ -37,7 +20,6 @@ module.exports = function (app) {
       res.json({
         email: req.user.email,
         id: req.user.id,
-        is_trainer: req.user.is_trainer,
       });
     }
   });
