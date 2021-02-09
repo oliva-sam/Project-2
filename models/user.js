@@ -8,17 +8,14 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false,
       unique: true,
-      validate: {
-        isEmail: true,
-      },
-      // Password cannot be null
-      password: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      is_trainer: {
-        type: DataTypes.BOOLEAN,
-      },
+      // validate: {
+      //   isEmail: true,
+      // },
+    },
+    // Password cannot be null
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false,
     },
   });
   // Will compare if unhashed password created by User can be compared to hashed password stored in database
@@ -26,9 +23,9 @@ module.exports = function (sequelize, DataTypes) {
     return bcrypt.compareSync(password, this.password);
   };
   // Before a User is created, we will automatically hash their password
-  User.addHook("beforeCreate", function (User) {
-    User.password = bcrypt.hashSync(
-      User.password,
+  User.addHook("beforeCreate", function (user) {
+    user.password = bcrypt.hashSync(
+      user.password,
       bcrypt.genSaltSync(10),
       null
     );

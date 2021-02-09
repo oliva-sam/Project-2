@@ -1,42 +1,42 @@
 const express = require("express");
 const router = express.Router();
 
-let user = require("../models/user.js");
+const isAuthenticated = require("../config/middleware/isAuthenticated.js");
+
+let db = require("../models");
 
 router.get("/", function (req, res) {
-  res.send("hi");
+  if (req.user) {
+    res.redirect("/client");
+  }
+  res.render("signup");
 });
 
-// router.get("/user", function (req, res) {
-//   user.all(function (data) {
-//     var userObject = {
-//       users: data,
-//     };
-//     console.log(userObject);
-//     res.render("user", userObject);
-//   });
-// });
 router.get("/login", function (req, res) {
-  if (req.user.is_trainer) {
-    res.redirect("/trainer");
+  if (req.user) {
+    res.redirect("/client");
   }
 });
 
-router.get("/signup", function (req, res) {
-  user
-    .create(
-      ["name", "email"],
-      [req.body.name, req.body.email],
-      function (result) {
-        res.json({ id: result.insertId });
+router.post("/signup", function (req, res) {
+  console.log("heres the body", req.body);
+  db.User.create({
+    email: req.body.email,
+    password: req.body.password,
+  })
+    .then(function (res) {
+      if (req.user) {
+        res.redirect(307, "/client");
       }
-    )
-    .then(function () {
-      res.redirect(307, "/login");
     })
     .catch(function (err) {
       res.status(401).json(err);
     });
+});
+
+router.get("/client", isAuthenticated, function (req, res) {
+  console.log(res);
+  res.render("client");
 });
 
 module.exports = router;
