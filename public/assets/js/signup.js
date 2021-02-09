@@ -12,7 +12,7 @@ $(document).ready(function () {
     let newUser = {
       email: userEmail.val().trim(),
       password: userPassword.val().trim(),
-      // trainer: isTrainer
+      // goals: "15 min. walk",
     };
 
     if (!newUser.email || !newUser.password) {
@@ -28,10 +28,11 @@ $(document).ready(function () {
     // code to reset checkbox TBD
   });
 
-  function newUserSignUp(email, password) {
+  function newUserSignUp(email, password, goals) {
     $.post("/signup", {
       email: email,
       password: password,
+      // goals: goals,
     })
       .then(function (data) {
         console.log("redirect to client page now");
@@ -55,8 +56,6 @@ $(document).ready(function () {
       email: emailLog.val().trim(),
       password: passwordLog.val().trim(),
     };
-
-    console.log(clientData);
 
     if (!clientData.email || !clientData.password) {
       return alert("email and password fields are both required");

@@ -38,8 +38,68 @@ router.post("/signup", function (req, res) {
 
 // when user logs in they will see their page here
 router.get("/client", isAuthenticated, function (req, res) {
-  // console.log(res);
-  res.render("client");
+  console.log(req.user);
+  db.Goals.findAll({
+    where: {
+      UserId: req.user.id,
+    },
+  }).then(function (data) {
+    console.log(data);
+    res.render("client", data);
+  });
 });
+//==================goals======================
+
+// will display client goals once they have been created
+// router.get("/client", function (req, res) {
+//   db.User.all(function (data) {
+//     let goalObject = {
+//       user: data,
+//     };
+//     console.log(goalObject);
+//     res.render("client", goalObject);
+//   });
+// });
+
+// users will be able to add their own goals
+// router.get("/clientgoals/:id", function (req, res) {
+//   db.Goals.findAll({
+//     where: {
+//       UserId: req.params.id,
+//     },
+//   }).then(function (goal) {
+//     // console.log(goal);
+//   });
+// });
+
+// // users will be able to 'complete' their goals once met
+// router.put("/client/update/:id", function (req, res) {
+//   let condition = "id = " + req.params.id;
+
+//   console.log("condition", condition);
+
+//   db.Goal.update({ goals: req.body.goals }, condition, function (data) {
+//     res.redirect("/client");
+//     if (data.changedRows == 0) {
+//       return res.status(404).end();
+//     } else {
+//       res.status(200).end();
+//     }
+//   });
+// });
+
+// // will delete goal if user chooses to do so
+// router.delete("/client/delete/:id", function (req, res) {
+//   let condition = "id = " + req.params.id;
+
+//   db.Goal.delete(condition, function (data) {
+//     if (data.affectedRows == 0) {
+//       return res.status(404).end();
+//     } else {
+//       res.status(200).end();
+//     }
+//   });
+//   res.redirect("/client");
+// });
 
 module.exports = router;
