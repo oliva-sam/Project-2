@@ -12,12 +12,14 @@ router.get("/", function (req, res) {
   res.render("signup");
 });
 
+// once account is created a user can then login to their page
 router.get("/login", function (req, res) {
   if (req.user) {
     res.redirect("/client");
   }
 });
 
+// this route will signup users and will allow them to then use the login to access their page
 router.post("/signup", function (req, res) {
   console.log("heres the body", req.body);
   db.User.create({
@@ -34,6 +36,7 @@ router.post("/signup", function (req, res) {
     });
 });
 
+// when user logs in they will see their page here
 router.get("/client", isAuthenticated, function (req, res) {
   console.log(res);
   res.render("client");

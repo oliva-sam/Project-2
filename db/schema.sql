@@ -1,27 +1,22 @@
 DROP DATABASE IF EXISTS user_db;
 CREATE DATABASE user_db;
 USE user_db;
-CREATE TABLE user (
-    id INT NOT NULL AUTO_INCREMENT,
-    name VARCHAR(50) NOT NULL,
-    email VARCHAR(80) NOT NULL,
-    password VARCHAR(255) NOT NULL,
-    is_trainer BOOLEAN DEFAULT false,
-    PRIMARY KEY (id)
-);
--- Inserting values into sample database --
-INSERT INTO user (name, email, is_trainer)
-VALUES ('Xavier', 'xavi@fakemail.com', true);
-INSERT INTO user (name, email, is_trainer)
-VALUES ('Bob', 'bob@fakemail.com', false);
-INSERT INTO user (name, email, is_trainer)
-VALUES ('Jon', 'jon@fakemail.com', false);
-INSERT INTO user (name, email, is_trainer)
-VALUES ('Jane', 'jane@fakemail.com', true);
--- Selecting wherer trainer is true or false with boolean defaulted to false --
-SELECT *
-FROM user_db.user
-WHERE user.is_trainer = 1;
-SELECT *
-FROM user_db.user
-WHERE user.is_trainer = 0;
+-- CREATE TABLE user (
+--     id INT NOT NULL AUTO_INCREMENT,
+--     name VARCHAR(50) NOT NULL,
+--     email VARCHAR(80) NOT NULL,
+--     password VARCHAR(255) NOT NULL,
+--     PRIMARY KEY (id)
+-- );
+-- -- Inserting values into sample database --
+-- INSERT INTO user (name, email)
+-- VALUES ('Xavier', 'xavi@fakemail.com');
+-- INSERT INTO user (name, email)
+-- VALUES ('Bob', 'bob@fakemail.com');
+-- INSERT INTO user (name, email)
+-- VALUES ('Jon', 'jon@fakemail.com');
+-- INSERT INTO user (name, email)
+-- VALUES ('Jane', 'jane@fakemail.com');
+DROP DATABASE IF EXISTS goal_db;
+CREATE DATABASE goal_db;
+USE goal_db;
