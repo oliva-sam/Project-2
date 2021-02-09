@@ -1,5 +1,7 @@
 <div class="bigimg text-center">
-    <div class="caption"><h3>Get Fit!</h3></div> 
+    <div class="caption">
+        <h3>Get Fit!</h3>
+    </div>
 </div>
 <div class="container mt-4">
     <div class="row text-center">
@@ -11,24 +13,44 @@
     <div class="row">
         <div>
             <h3 class="text-center">Share your goals!</h3>
-            <div class="input-group">
-                <textarea class="form-control" aria-label="With textarea" placeholder="Goals"></textarea>
-            </div>
-            <div class="float-end">
-                <form action="submit"><button>Submit!</button></form>
-            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Goals</h2>
+            <ol>
+                {{#each goal}}
+                {{#unless this.complete}}
+                <li> {{this.goal}}
+                    <button class="completeBtn" data-id="{{id}}">Complete</button>
+                </li>
+                {{/unless}}
+                {{/each}}
+            </ol>
+        </div>
+
+        <div class="col-md-6">
+            <h2>Completed Goals</h2>
+            <ol>
+                {{#each goal}}
+                {{#if this.complete}}
+                <li>{{this.goal}}
+                    <button class="deleteBtn" data-id="{{this.id}}">delete</button>
+                </li>
+                {{/if}}
+                {{/each}}
+            </ol>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <input id="userGoal" type="text">
+            <button id="goalBtn">New Goal</button>
         </div>
     </div>
 </div>
-<ul>
-    {{#each client}}
-        <li>
-            <div class="text-center" id="goals">
-                
-            </div>
-        </li>
-    {{/each}}
-</ul>
+
 <div class="text-center">
     <a href="/logout">Log Out</a>
 </div>

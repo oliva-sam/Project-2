@@ -38,7 +38,7 @@ router.post("/signup", function (req, res) {
 
 // when user logs in they will see their page here
 router.get("/client", isAuthenticated, function (req, res) {
-  console.log(res);
+  // console.log(res);
   res.render("client");
 });
 
