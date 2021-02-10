@@ -17,7 +17,7 @@ module.exports = function (app) {
     db.Goals.create({
       goals: req.body.goals,
       complete: req.body.complete,
-      UserId: req.body.UserId,
+      UserId: req.user.id,
     }).then(function (dbGoals) {
       // console.log(dbGoals);
       res.json(dbGoals);

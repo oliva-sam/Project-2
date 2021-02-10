@@ -44,33 +44,23 @@ router.get("/client", isAuthenticated, function (req, res) {
       UserId: req.user.id,
     },
   }).then(function (data) {
-    console.log(data);
-    res.render("client", data);
+    console.log("goals to show " + data);
+    res.render("client", { data });
+    // res.json(data);
   });
 });
 //==================goals======================
 
 // will display client goals once they have been created
-// router.get("/client", function (req, res) {
-//   db.User.all(function (data) {
-//     let goalObject = {
-//       user: data,
-//     };
-//     console.log(goalObject);
-//     res.render("client", goalObject);
-//   });
-// });
-
-// users will be able to add their own goals
-// router.get("/clientgoals/:id", function (req, res) {
-//   db.Goals.findAll({
-//     where: {
-//       UserId: req.params.id,
-//     },
-//   }).then(function (goal) {
-//     // console.log(goal);
-//   });
-// });
+router.get("/client", function (req, res) {
+  db.User.all(function (data) {
+    let goalObject = {
+      user: data,
+    };
+    console.log(goalObject);
+    res.render("client", goalObject);
+  });
+});
 
 // // users will be able to 'complete' their goals once met
 // router.put("/client/update/:id", function (req, res) {
