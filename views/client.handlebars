@@ -20,8 +20,8 @@
             <h2>Goals</h2>
             <ol>
                 {{#each data}}
-                {{#unless this.complete}}
-                <li> {{this.goals}}
+                {{#unless data.complete}}
+                <li> {{data}}
                     <button class="completeBtn" data-id="{{id}}">Complete</button>
                 </li>
                 {{/unless}}

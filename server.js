@@ -6,7 +6,6 @@ var passport = require("./config/passport");
 //
 var apiRoutes = require("./controller/api_controller.js");
 var userRoutes = require("./controller/user_controller.js");
-var goalRoutes = require("./controller/goals_controller.js");
 
 // Setting up port and requiring models for syncing
 var PORT = process.env.PORT || 8080;
@@ -30,7 +29,6 @@ app.use(passport.session());
 
 apiRoutes(app);
 app.use(userRoutes);
-app.use(goalRoutes);
 
 //// SYNC THE DATABASE THEN LISTEN TO PORT ////
 db.sequelize.sync().then(function () {
