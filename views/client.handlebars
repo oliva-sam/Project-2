@@ -19,7 +19,7 @@
         <div class="col-md-6">
             <h2>Goals</h2>
             <ol>
-                {{#each goals}}
+                {{#each data}}
                 {{#unless this.complete}}
                 <li> {{this.goals}}
                     <button class="completeBtn" data-id="{{id}}">Complete</button>
