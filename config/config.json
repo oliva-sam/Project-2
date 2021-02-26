@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "root",
-    "password": "Pokemon01!",
-    "database": "user_db",
-    "host": "localhost",
+    "username": "uztfc1mkqfqhsb12",
+    "password": "yv0m9zj3olvuonp6",
+    "database": "zbnzpn0oe1n295up",
+    "host": "l0ebsc9jituxzmts.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "dialect": "mysql"
   },
   "test": {
